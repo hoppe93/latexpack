@@ -26,7 +26,7 @@ def pack(root, output, copybbl):
     if not output.is_dir():
         output.mkdir(parents=True)
 
-    parse.process_file(str(root), output=output, fig=1, subfig=0)
+    parse.process_file(str(root), output=output, fig=0, subfig=0)
 
     # Copy bibliography
     if copybbl:
@@ -43,7 +43,7 @@ def main():
 
     parser.add_argument('root', help='Path to root document', nargs=1)
     parser.add_argument('--exclude-bbl', help="Exclude the compiled bibliography file", type=bool)
-    parser.add_argument('--output', default=defaultpack, help="Directory under which the packed output should be stored")
+    parser.add_argument('-o', '--output', default=defaultpack, help="Directory under which the packed output should be stored")
 
     args = parser.parse_args()
 
